@@ -1,0 +1,102 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar.navbar-danger {
+    background-color: crimson;
+    font-size: 1.3em;
+    font-weight: 500;
+    width: 100%;
+}
+
+.chatContainer {
+    padding-top: 80px;
+}
+.panel{
+}
+.panel-heading {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.panelOptionHead{
+    font-size: 1.3em;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+.panelOptionContent{
+    font-size: 1.2em;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+
+
+.chatRoomScroll {
+    width: 100%;
+    height: 80vh;
+    overflow: auto;
+}
+
+.messageBoxContainer {
+    background-color: #fff;
+}
+
+.messageBox .message_username {
+    font-size: 1.3em;
+}
+
+.messageBox .message_username:hover, .messageBox .message_text:hover {
+    background-color: #E4E4E4;
+}
+
+.messageBox .message_text, .messageBox .message_username {
+    border: none;
+    border-radius: 2px;
+    position: relative;
+    padding: 8px 30px;
+    margin: 10px 1px;
+    box-shadow: 1px 2px 5px #888888;
+    display: inline-block;
+    will-change: box-shadow, transform;
+    -webkit-transition: -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.messageBox .message_text {
+    display: block;
+    word-wrap: break-word;
+    /* IE 5.5-7 */
+    white-space: -moz-pre-wrap;
+    /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;
+    /* current browsers */
+    background-color: #C1E8E2;
+    font-weight: 400;
+    color: #000;
+    font-size: 1.1em;
+}
+
+.messageBox .message_username {
+    font-weight: 500;
+    background-color: #EFEFEF;
+    font-size: 1.3em;
+}
+
+.messageBox .message_username:hover {
+    background-color: #E4E4E4;
+}
+
+.messageBox .message_text:hover {
+    color: #fff;
+    background-color: #55C6BB;
+}
+
+.messageBox .message_sent {
+    font-size: 1.3em;
+}
+.sendMessageContainer {
+    font-size: 1.5em;
+    
+}
