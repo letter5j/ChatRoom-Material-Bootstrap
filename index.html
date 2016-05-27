@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +10,11 @@
 
     <!-- Core CSS -->
     <!-- Material Design fonts -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- Bootstrap Material Design -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/css/bootstrap-material-design.css">
@@ -23,194 +22,149 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body>
-    <div id="roomNavbar" class="navbar navbar-danger navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"></button>
-                <a class="navbar-brand" href="javascript:void(0)">ChatRoom 12345678</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0)"><i class="material-icons">account_circle</i>199人</a></li>
-            </ul>
+<input>
+<div id="roomNavbar" class="navbar navbar-danger navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"></button>
+            <a class="navbar-brand" href="javascript:void(0)">ChatRoom <span id="textRoomCode"></span></a>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:void(0)"><i class="material-icons">account_circle</i>199人</a></li>
+        </ul>
     </div>
-    <div class="chatContainer">
+</div>
+<div class="chatContainer">
 
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <div class="userPanel">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title">User Panel</div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="panelOptionHead">您目前的暱稱：</div>
-                        <div class="text-primary panelOptionContent">123</div>
-                        <div class="panelOptionHead">您目前的IP：</div>
-                        <div class="text-primary panelOptionContent">127.0.0.1</div>
-                        <div class="panelOptionHead">您目前的房間：</div>
-                        <div class="text-primary panelOptionContent">Private</div>
-                        <div class="panelOptionHead">您目前的人生：</div>
-                        <div class="text-primary panelOptionContent">很糟糕別再嘴砲了。</div>
-                        <div class="panelOptionHead">是否送出顯示IP：</div>
-                        <div class="text-primary panelOptionContent">
-                            <div class="togglebutton">
-                                <label>
-                                    <input type="checkbox" checked>是
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <div class="userPanel">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">User Panel</div>
+                </div>
+                <div class="panel-body">
+                    <div class="panelOptionHead">您目前的暱稱：</div>
+                    <div class="text-primary panelOptionContent" id="textNick"></div>
+                    <div class="panelOptionHead">您目前的IP：</div>
+                    <div class="text-primary panelOptionContent">127.0.0.1</div>
+                    <div class="panelOptionHead">您目前的房間：</div>
+                    <div class="text-primary panelOptionContent"><span id="roomStatus"></span></div>
+                    <div class="panelOptionHead">您目前的人生：</div>
+                    <div class="text-primary panelOptionContent">很糟糕別再嘴砲了。</div>
+                    <div class="panelOptionHead">是否使用公開房：</div>
+                    <div class="text-primary panelOptionContent">
+                        <div class="togglebutton togglebutton-info">
+                            <label>
+                                    <input type="checkbox" id="check_room" checked="true"><span id="check_roomText"></span>
                                 </label>
+                        </div>
+                        <div class="form-group has-info" id="change_room">
+                            <label class="control-label" for="newroom_code">輸入欲前往之房號：</label>
+                            <div class="input-group">
+                                <input type="text" id="newroom_code" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-raised btn-xs" type="button" id="newroom_submit">確認</button>
+                                </span>
                             </div>
                         </div>
-                        <div class="panelOptionHead">離開房間：</div>
-                        <div class="text-primary panelOptionContent">
-                            <a href="javascript:void(0)" class="btn btn-danger btn-lg btn-block btn-raised">不要</a>
-                        </div>
+
+
                     </div>
+                    <!--div class="panelOptionHead">離開房間：</div>
+                    <div class="text-primary panelOptionContent">
+                        <a href="javascript:void(0)" class="btn btn-danger btn-lg btn-block btn-raised">不要</a>
+                    </div-->
                 </div>
-
-
-
             </div>
+
+
+
         </div>
-        <div class="col-sm-10 col-md-10 col-lg-10">
-            <div class="chatRoomScroll">
-                <div class="well well-md messageBoxContainer">
-                    <div class="row messageBox">
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                            <div class="message_username">999</div>
-                            <div class="message_text">132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132132132123132</div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="message_sent pull-right">
-                                <i class="material-icons">alarm</i> 12:07
-                            </div>
-                        </div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <div class="chatRoomScroll" id="chatRoom">
 
-
+            <!--div class="well well-sm messageBoxContainer">
+                <div class="row messageBox">
+                    <div class="col-sm-10 col-md-10 col-lg-10">
+                        <div class="message_username">999</div>
+                        <div class="message_text">我是神</div>
                     </div>
-
-                </div>
-                <div class="well well-md messageBoxContainer">
-                    <div class="row messageBox">
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                            <div class="message_username">999</div>
-                            <div class="message_text">我是神</div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="message_sent pull-right">
-                                <i class="material-icons">alarm</i> 12:07
-                            </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <div class="message_sent pull-right">
+                            <i class="material-icons">alarm</i> 12:07
                         </div>
                     </div>
                 </div>
+            </div-->
 
-                <div class="well well-md messageBoxContainer">
-                    <div class="row messageBox">
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                            <div class="message_username">999</div>
-                            <div class="message_text">我是神</div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="message_sent pull-right">
-                                <i class="material-icons">alarm</i> 12:07
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="well well-md messageBoxContainer">
-                    <div class="row messageBox">
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                            <div class="message_username">999</div>
-                            <div class="message_text">我是神</div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="message_sent pull-right">
-                                <i class="material-icons">alarm</i> 12:07
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="well well-md messageBoxContainer">
-                    <div class="row messageBox">
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                            <div class="message_username">999</div>
-                            <div class="message_text">我是神</div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="message_sent pull-right">
-                                <i class="material-icons">alarm</i> 12:07
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="well well-md messageBoxContainer">
-                    <div class="row messageBox">
-                        <div class="col-sm-10 col-md-10 col-lg-10">
-                            <div class="message_username">999</div>
-                            <div class="message_text">我是神</div>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-                            <div class="message_sent pull-right">
-                                <i class="material-icons">alarm</i> 12:07
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-            <div class="sendMessageContainer">
 
-                <div class="form-group label-floating">
-                    <label class="control-label" for="focusedInput">來打些嘴砲吧！</label>
-                    <div class="input-group">
-                        <input type="text" id="focusedInput" class="form-control">
-                        <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button"><i class="material-icons">label_outline</i>發射</button>
+        </div>
+        <div class="sendMessageContainer">
+
+            <div class="form-group label-floating">
+                <label class="control-label" for="content">來打些嘴砲吧！</label>
+                <div class="input-group">
+                    <input type="text" id="content" class="form-control">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary" id="send_btn" type="button"><i class="material-icons">label_outline</i>發射</button>
                 </span>
-                    </div>
                 </div>
             </div>
-
-
-
         </div>
+
 
 
     </div>
 
 
+</div>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+<input id="tid" value="0" style="display: none;">
+
+<!-- Modal -->
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         </button>
-                    <h4 class="modal-title" id="checkModalLabel">歡迎光臨</h4>
+                <h4 class="modal-title" id="checkModalLabel">歡迎光臨</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group label-floating">
+                    <label class="control-label" for="user_nick">請輸入您欲使用的暱稱：</label>
+                    <input type="text" class="form-control" id="user_nick">
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="form-group label-floating">
+                    <label class="control-label" for="room_code">請輸入您欲進入的房間編號：</label>
+                    <input class="form-control" id="room_code" type="text">
+                    <p class="help-block">如果不填寫，則預設進入公共房間。</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">確認</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                <button type="button" class="btn btn-primary" id="input_submit">確認</button>
             </div>
         </div>
     </div>
-    <!-- Build JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</div>
+<!-- Build JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/js/material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/js/ripples.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/js/material.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/js/ripples.min.js"></script>
 
-    <script>
-        $.material.init();
-    </script>
-    <script src="js/main.js"></script>
+<script>
+    $.material.init();
+
+</script>
+<script src="js/main.js"></script>
 
 </body>
 
